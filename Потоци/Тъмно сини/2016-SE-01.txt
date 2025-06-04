@@ -1,0 +1,1 @@
+cat philip-j-fry.txt | grep -E '[02468]' --color | grep -E -v '[a-w]' | wc -l

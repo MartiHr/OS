@@ -1,0 +1,1 @@
+find . -type f -links +1  -exec stat -c '%n %Y %i' {} \; | sort -k 2 -n | head -n 1  | awk '{print $NF}'

@@ -1,0 +1,5 @@
+cat input.data | tail -n +2 | sort -t ';' -k 3 -n | awk -F ';' -v max="$(cat input.data | tail -n +2 | sort -t ';' -k3 -nr | cut -d ';' -f 2 | head -n 1)" '$2 == max {print}' | head -n 1
+
+or
+
+tail -n +2 input.data | sort -t ';' -k 3 -n | awk -F ';' -v max="$(tail -n +2 input.data | sort -t ';' -k3 -nr | cut -d ';' -f 2 | head -n 1)" '$2 == max {print}' | head -n 1

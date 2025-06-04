@@ -1,0 +1,2 @@
+cat /etc/passwd | tr -s ',' ':' | cut -d ':' -f 1,5,6 
+    \| awk -F ':' '$3 == "I" && $2 ~ "а$" {print $1}' | sed 's/^.//g' | grep -E -o '^.{2}' | sort | uniq -c | sort -nr | head -n 1

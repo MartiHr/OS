@@ -1,0 +1,7 @@
+cat /etc/passwd | grep -E 'velin' | awk -F ':' '{print $6}' 
+    \| find . -exec stat -c '%n %i' {} \; | awk -F '/' -v 
+        \inode="$(cat /etc/passwd | grep -E 'velin' | awk -F ':' '{print $6}' | find . -exec stat -c '%i %Y' {} \; | sort -k 2 -n | cut -d ' ' -f 1 | head -n 1)" '{print $0, NF-1, inode}' 
+    \| awk '$2 == $4 {print}' | sort -k 3 -nr | awk '{print $1, $3}'
+
+
+//whole line: cat /etc/passwd | grep -E 'velin' | awk -F ':' '{print $6}' | find . -exec stat -c '%n %i' {} \; | awk -F '/' -v inode="$(cat /etc/passwd | grep -E 'velin' | awk -F ':' '{print $6}' | find . -exec stat -c '%i %Y' {} \; | sort -k 2 -n | cut -d ' ' -f 1 | head -n 1)" '{print $0, NF-1, inode}' | awk '$2 == $4 {print}' | sort -k 3 -nr | awk '{print $1, $3}'

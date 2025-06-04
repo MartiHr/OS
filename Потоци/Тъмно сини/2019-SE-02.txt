@@ -1,0 +1,7 @@
+awk -F ':' '$6 ~ "^/home/SI" && $2 ~ "^SI" {
+    cmd="stat -c %Y " $6;
+    cmd | getline status_change_time;
+    close(cmd);
+    if (status_change_time >= 1551168000 && status_change_time <= 1551176100)
+        print $1 "\t" $5
+}' /etc/passwd

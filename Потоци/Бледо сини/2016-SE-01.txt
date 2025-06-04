@@ -1,0 +1,5 @@
+find /path/to/directory -type l ! -exec test -e {} \; -print 2>/dev/null
+
+or
+
+find /path/to/directory -type l -xtype l 2>/dev/null

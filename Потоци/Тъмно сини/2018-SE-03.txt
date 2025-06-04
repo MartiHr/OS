@@ -1,0 +1,1 @@
+cat /etc/passwd | sort -t ':' -k 1 -n | tr -s ',' ':' | awk -F ':' '$6 == "SI" {print}' | awk -F ':' '{printf "%s:%s\n", $5, $NF}'

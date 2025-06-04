@@ -1,0 +1,1 @@
+find . -maxdepth 3 -type f -exec stat --format '%n %h' {} + 2>/dev/null| sort -k2 -nr | head -n 5
