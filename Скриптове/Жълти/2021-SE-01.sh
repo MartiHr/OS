@@ -30,6 +30,7 @@ fi
 
 # Стъпка 6: Обработваме всеки ADR home
 echo "$homes_output" | tail -n +2 | while read -r home; do
+    # sed -e нещо -е нещо -> просто все едно два седа на отделни редове, които се изпълняват последователно 
     home=$(echo "$home" | sed -E -e 's/^[[:space:]]+//' -e 's/[[:space:]]+$//')
     path="$diag_dest/$home"
 
