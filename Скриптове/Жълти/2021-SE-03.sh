@@ -28,3 +28,4 @@ done
 ARR=$(echo "${ARR}" | sed -E "s/,$//")
 
 echo "uint16_t arr[] = { ${ARR} };" > ${OUTPUT}
+        
